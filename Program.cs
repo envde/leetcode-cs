@@ -1,11 +1,13 @@
-﻿using LeetCode.Problems;
+﻿using LeetCode.Common;
 using LeetCode.Problems.Easy;
 
+// Register problems here.
 IReadOnlyList<IProblem> problems =
 [
     new TwoSumProblem()
 ];
 
+// Solve problems.
 foreach (var problem in problems)
 {
     var descr = problem.Description;

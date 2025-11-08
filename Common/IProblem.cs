@@ -1,4 +1,6 @@
-namespace LeetCode.Problems;
+using LeetCode.Problems;
+
+namespace LeetCode.Common;
 
 /// <summary>
 /// Interface for LeetCode problems.

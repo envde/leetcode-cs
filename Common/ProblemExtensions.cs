@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace LeetCode.Problems;
+namespace LeetCode.Common;
 
 public static class ProblemExtensions
 {

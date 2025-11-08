@@ -1,3 +1,5 @@
+using LeetCode.Common;
+
 namespace LeetCode.Problems.Easy;
 
 public class TwoSumProblem : IProblem

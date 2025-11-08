@@ -1,4 +1,4 @@
-namespace LeetCode.Problems;
+namespace LeetCode.Common;
 
 /// <summary>
 /// Problem result.
