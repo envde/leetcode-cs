@@ -8,17 +8,17 @@ public class TwoSumProblem : IProblem
     {
         IList<ProblemResult> problemResults = new List<ProblemResult>();
 
-        IReadOnlyList<Tuple<int[], int>> inputValues =
+        IReadOnlyList<(int[] Nums, int Target)> inputValues =
         [
-            Tuple.Create(new[] { 2, 7, 11, 15 }, 9),
-            Tuple.Create(new[] { 3, 2, 4 }, 6),
-            Tuple.Create(new[] { 3, 3 }, 6)
+            ([2, 7, 11, 15], 9),
+            ([3, 2, 4], 6),
+            ([3, 3], 6)
         ];
 
         foreach (var inputValue in inputValues)
         {
-            Stopwatch sw = Stopwatch.StartNew();
-            var result = TwoSumFast(inputValue.Item1, inputValue.Item2);
+            var sw = Stopwatch.StartNew();
+            var result = TwoSumFast(inputValue.Nums, inputValue.Target);
             sw.Stop();
 
             problemResults.Add(new ProblemResult
