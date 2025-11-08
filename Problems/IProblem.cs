@@ -10,5 +10,8 @@ public interface IProblem
     /// </summary>
     IList<ProblemResult> Solve();
     
+    /// <summary>
+    /// About the problem. Description, name, url, etc.
+    /// </summary>
     ProblemDescription Description { get; }
 }
