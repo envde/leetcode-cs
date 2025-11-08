@@ -1,13 +1,9 @@
-using System.Diagnostics;
-
 namespace LeetCode.Problems.Easy;
 
 public class TwoSumProblem : IProblem
 {
     public IList<ProblemResult> Solve()
     {
-        IList<ProblemResult> problemResults = new List<ProblemResult>();
-
         IReadOnlyList<(int[] Nums, int Target)> inputValues =
         [
             ([2, 7, 11, 15], 9),
@@ -15,18 +11,7 @@ public class TwoSumProblem : IProblem
             ([3, 3], 6)
         ];
 
-        foreach (var inputValue in inputValues)
-        {
-            var sw = Stopwatch.StartNew();
-            var result = TwoSumFast(inputValue.Nums, inputValue.Target);
-            sw.Stop();
-
-            problemResults.Add(new ProblemResult
-            {
-                Duration = sw.Elapsed,
-                Result = $"[{string.Join(", ", result)}]",
-            });
-        }
+        var problemResults = inputValues.Execute(TwoSumFast, result => $"[{string.Join(", ", result)}]");
 
         return problemResults;
     }

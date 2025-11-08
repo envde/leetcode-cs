@@ -3,7 +3,6 @@ using LeetCode.Problems.Easy;
 
 IReadOnlyList<IProblem> problems =
 [
-    new TwoSumProblem(),
     new TwoSumProblem()
 ];
 
