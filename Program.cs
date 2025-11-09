@@ -5,7 +5,8 @@ using LeetCode.Problems.Easy;
 IReadOnlyList<IProblem> problems =
 [
     //new TwoSumProblem(),
-    new BestTimeBuySellStock()
+    //new BestTimeBuySellStock(),
+    new MaximumSubarray()
 ];
 
 // Solve problems.
