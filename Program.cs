@@ -4,7 +4,8 @@ using LeetCode.Problems.Easy;
 // Register problems here.
 IReadOnlyList<IProblem> problems =
 [
-    new TwoSumProblem()
+    //new TwoSumProblem(),
+    new BestTimeBuySellStock()
 ];
 
 // Solve problems.
