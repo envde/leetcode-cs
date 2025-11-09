@@ -4,8 +4,8 @@ using LeetCode.Problems.Easy;
 // Register problems here.
 IReadOnlyList<IProblem> problems =
 [
-    //new TwoSumProblem(),
-    //new BestTimeBuySellStock(),
+    new TwoSumProblem(),
+    new BestTimeBuySellStock(),
     new MaximumSubarray()
 ];
 
@@ -59,7 +59,6 @@ foreach (var problem in problems)
     }
     
     Console.ForegroundColor = ConsoleColor.Cyan;
-    Console.WriteLine("═══════════════════════════════════════════════════════════════");
     Console.ResetColor();
     Console.WriteLine();
 }
