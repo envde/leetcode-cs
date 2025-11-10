@@ -12,4 +12,9 @@ public record struct ProblemResult {
     /// Problem's result.'
     /// </summary>
     public required string Result { get; init; }
+
+    /// <summary>
+    /// The expected outcome of the problem solution.
+    /// </summary>
+    public required string? Expected { get; init; }
 }

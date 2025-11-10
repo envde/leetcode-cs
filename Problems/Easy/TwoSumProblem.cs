@@ -6,11 +6,11 @@ public class TwoSumProblem : IProblem
 {
     public IList<ProblemResult> Solve()
     {
-        IReadOnlyList<(int[] Nums, int Target)> inputValues =
+        IReadOnlyList<(int[] Nums, int Target, int[] Expected)> inputValues =
         [
-            ([2, 7, 11, 15], 9),
-            ([3, 2, 4], 6),
-            ([3, 3], 6)
+            ([2, 7, 11, 15], 9, [0,1]),
+            ([3, 2, 4], 6, [1,2]),
+            ([3, 1], 6, [0,1])
         ];
 
         var problemResults = inputValues.Execute(TwoSumFast, result => $"[{string.Join(", ", result)}]");
