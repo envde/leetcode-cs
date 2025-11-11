@@ -65,16 +65,25 @@ public class MergeSortedArray : IProblem
        Note that because m = 0, there are no elements in nums1. The 0 is only there to ensure the merge result can fit in nums1.
 
      */
-    public int[] Merge(int[] nums1, int m, int[] nums2, int n)
+    public static int[] Merge(int[] nums1, int m, int[] nums2, int n)
     {
-        for (int i = m - 1, j = n - 1, k = m + n - 1; j >= 0; k--)
+        var i = m - 1; // last index in nums1
+        var j = n - 1; // last index in nums2
+
+        for (var k = m + n - 1; k >= 0 && j >= 0; k--)
         {
             if (i >= 0 && nums1[i] > nums2[j])
-                nums1[k] = nums1[i--];
+            {
+                nums1[k] = nums1[i];
+                i--;
+            }
             else
-                nums1[k] = nums2[j--];
+            {
+                nums1[k] = nums2[j];
+                j--;
+            }
         }
-        
+
         return nums1;
     }
 }
