@@ -2,22 +2,15 @@ using LeetCode.Common;
 
 namespace LeetCode.Problems.Easy;
 
-public class MergeSortedArray : IProblem
+public class MergeSortedArray: ProblemDefault<(int[] Nums1, int M, int[] Nums2, int N, int[] Expected)>
 {
-    public IList<ProblemResult> Solve()
+    protected override (string Result, string Expected) Execute((int[] Nums1, int M, int[] Nums2, int N, int[] Expected) inputItem)
     {
-        IReadOnlyList<(int[] nums1, int m, int[] nums2, int n, int[] expected)> inputValues =
-        [
-            ([1,2,3,0,0,0], 3, [2,5,6], 3, [1,2,2,3,5,6]),
-            ([1], 1, [], 0, [1]),
-            ([0], 0, [1], 1, [1])
-        ];
-        
-        var problemResults = inputValues.Execute(Merge, result => $"[{string.Join(", ", result)}]");
-        return problemResults;
+        var result = Merge(inputItem.Nums1, inputItem.M, inputItem.Nums2, inputItem.N);
+        return (result.ToLeetCodeString(), inputItem.Expected.ToLeetCodeString());
     }
 
-    public ProblemDescription Description => new ProblemDescription
+    public override ProblemDescription Description => new()
     {
         Name = "Merge Sorted Array",
         Url = "https://leetcode.com/problems/merge-sorted-array/",
@@ -33,6 +26,13 @@ public class MergeSortedArray : IProblem
             set to 0 and should be ignored. nums2 has a length of n.
             """
     };
+
+    protected override IReadOnlyList<(int[] Nums1, int M, int[] Nums2, int N, int[] Expected)> InputValues =>
+    [
+        ([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3, [1, 2, 2, 3, 5, 6]),
+        ([1], 1, [], 0, [1]),
+        ([0], 0, [1], 1, [1])
+    ];
 
 
     /*

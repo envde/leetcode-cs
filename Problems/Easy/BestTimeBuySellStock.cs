@@ -2,22 +2,15 @@ using LeetCode.Common;
 
 namespace LeetCode.Problems.Easy;
 
-public class BestTimeBuySellStock : IProblem
+public class BestTimeBuySellStock : ProblemDefault<(int[] Data, int Expected)>
 {
-    public IList<ProblemResult> Solve()
+    protected override (string Result, string Expected) Execute((int[] Data, int Expected) inputItem)
     {
-        IReadOnlyList<(int[], int)> inputValues =
-        [
-            ([7, 1, 5, 3, 6, 4], 5),
-            ([7, 6, 4, 3, 1], 0),
-            ([2, 4, 1], 2)
-        ];
-
-        var problemResults = inputValues.Execute(MaxProfit, result => result.ToString());
-        return problemResults;
+        var result = MaxProfit(inputItem.Data);
+        return (result.ToString(), inputItem.Expected.ToString());
     }
 
-    public ProblemDescription Description => new()
+    public override ProblemDescription Description => new()
     {
         Name = "Best Time to Buy and Sell Stock",
         Url = "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
@@ -27,6 +20,13 @@ public class BestTimeBuySellStock : IProblem
             "Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.",
         Difficulty = Difficulty.Easy
     };
+
+    protected override IReadOnlyList<(int[], int)> InputValues =>
+    [
+        ([7, 1, 5, 3, 6, 4], 5),
+        ([7, 6, 4, 3, 1], 0 ),
+        ([2, 4, 1], 2)
+    ];
 
 
     /*

@@ -2,30 +2,30 @@ using LeetCode.Common;
 
 namespace LeetCode.Problems.Easy;
 
-public class MaximumSubarray: IProblem
+public class MaximumSubarray: ProblemDefault<(int[] Data, int Expected)>
 {
-    public IList<ProblemResult> Solve()
+    protected override (string Result, string Expected) Execute((int[] Data, int Expected) inputItem)
     {
-        IReadOnlyList<(int[], int)> inputValues =
-        [
-            ([-2,1,-3,4,-1,2,1,-5,4], 6),
-            ([1], 1),
-            ([5,4,-1,7,8], 23)
-        ];
-        
-        var problemResults = inputValues.Execute(MaxSubArray, result => result.ToString());
-        return problemResults;
+        var result = MaxSubArray(inputItem.Data);
+        return (result.ToString(), inputItem.Expected.ToString());
     }
 
-    public ProblemDescription Description => new()
+    public override ProblemDescription Description => new()
     {
         Name = "Maximum Subarray",
         Url = "https://leetcode.com/problems/maximum-subarray/",
         Difficulty = Difficulty.Easy,
         Text = "Given an integer array nums, find the subarray with the largest sum, and return its sum."
     };
-    
-    
+
+    protected override IReadOnlyList<(int[] Data, int Expected)> InputValues =>
+    [
+        ([-2, 1, -3, 4, -1, 2, 1, -5, 4], 6),
+        ([1], 1),
+        ([5, 4, -1, 7, 8], 23)
+    ];
+
+
     /*
        Given an integer array nums, find the subarray with the largest sum, and return its sum.
        
