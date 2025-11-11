@@ -14,10 +14,6 @@ public record struct ProblemDescription
     /// </summary>
     public required string Url { get; init; }
     /// <summary>
-    /// Text to describe the problem.
-    /// </summary>
-    public required string Text { get; init; }
-    /// <summary>
     /// Problem's difficulty.'
     /// </summary>
     public required Difficulty Difficulty { get; init; }

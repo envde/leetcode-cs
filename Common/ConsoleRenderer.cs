@@ -13,7 +13,6 @@ public static class ConsoleRenderer
         var description = problem.Description;
         
         RenderHeader(description);
-        RenderDescription(description);
         RenderDifficulty(description.Difficulty);
         RenderSolutions(problem.Solve());
         RenderFooter();
@@ -33,21 +32,11 @@ public static class ConsoleRenderer
     private static void RenderHeader(ProblemDescription description)
     {
         Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.WriteLine("═══════════════════════════════════════════════════════════════");
+        Console.WriteLine("══════════════════════════════════════════════════════════════════════════════");
         Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine($"📝 Problem: {description.Name}");
         Console.ForegroundColor = ConsoleColor.Gray;
         Console.WriteLine($"🔗 URL: {description.Url}");
-        Console.WriteLine();
-        Console.ResetColor();
-    }
-
-    private static void RenderDescription(ProblemDescription description)
-    {
-        Console.ForegroundColor = ConsoleColor.White;
-        Console.WriteLine("Description:");
-        Console.ForegroundColor = ConsoleColor.Gray;
-        Console.WriteLine($"  {description.Text.Replace("\n", "\n  ")}");
         Console.WriteLine();
         Console.ResetColor();
     }
