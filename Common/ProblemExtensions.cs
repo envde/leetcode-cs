@@ -63,4 +63,23 @@ public static class ProblemExtensions
             };
         }).ToList();
     }
+
+    public static IList<ProblemResult> Execute<T1, T2, T3, T4, T5, TOutput>(
+        this IReadOnlyList<(T1, T2, T3, T4, T5)> inputValues,
+        Func<T1,T2,T3,T4, TOutput> solve, Func<TOutput, string> formatResult) where T5 : TOutput
+    {
+        return inputValues.Select(testCase =>
+        {
+            var sw = Stopwatch.StartNew();
+            var result = solve(testCase.Item1,testCase.Item2,testCase.Item3,testCase.Item4);
+            sw.Stop();
+
+            return new ProblemResult
+            {
+                Duration = sw.Elapsed,
+                Result = formatResult(result),
+                Expected = formatResult(testCase.Item5)
+            };
+        }).ToList();
+    }
 }

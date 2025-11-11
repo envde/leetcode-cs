@@ -6,7 +6,8 @@ IReadOnlyList<IProblem> problems =
 [
     new TwoSumProblem(),
     new BestTimeBuySellStock(),
-    new MaximumSubarray()
+    new MaximumSubarray(),
+    new MergeSortedArray()
 ];
 
 ConsoleRenderer.RenderProblems(problems);
