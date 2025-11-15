@@ -8,7 +8,8 @@ IReadOnlyList<IProblem> problems =
     // new BestTimeBuySellStock(),
     // new MaximumSubarray(),
     // new MergeSortedArray(),
-    new RemoveDuplicatesSortedArray()
+    // new RemoveDuplicatesSortedArray(),
+    new RemoveElement()
 ];
 
 ConsoleRenderer.RenderProblems(problems);
