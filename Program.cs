@@ -1,5 +1,6 @@
 ﻿using LeetCode.Common;
 using LeetCode.Problems.Easy;
+using LeetCode.Problems.Medium;
 
 // Register problems here.
 IReadOnlyList<IProblem> problems =
@@ -9,34 +10,9 @@ IReadOnlyList<IProblem> problems =
     // new MaximumSubarray(),
     // new MergeSortedArray(),
     // new RemoveDuplicatesSortedArray(),
-    new RemoveElement()
+    // new RemoveDuplicatesSortedArray2(),
+    // new RemoveElement(),
+    new MoveZeroes()
 ];
 
-//ConsoleRenderer.RenderProblems(problems);
-
-
-/*
-   Input: nums = [1,1,1,2,2,3]
-   Output: 5, nums = [1,1,2,2,3,_]
- */
-
-int[] array = [1, 1, 1, 2, 2, 3];
-
-int RemoveDuplicates(int[] nums)
-{
-    var k = 0;
-
-    for (var i = 0; i < nums.Length; i++)
-    {
-        if (k < 2 || nums[i] != nums[k - 2])
-        {
-            nums[k] = nums[i];
-            k++;
-        }
-    }
-
-    return k;
-}
-
-Console.WriteLine(RemoveDuplicates(array));
-Console.WriteLine(array.ToLeetCodeString());
+ConsoleRenderer.RenderProblems(problems);
