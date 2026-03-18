@@ -1,4 +1,5 @@
 ﻿using LeetCode.Common;
+using LeetCode.Outline;
 using LeetCode.Problems.Easy;
 using LeetCode.Problems.Medium;
 
@@ -12,7 +13,16 @@ IReadOnlyList<IProblem> problems =
     // new RemoveDuplicatesSortedArray(),
     // new RemoveDuplicatesSortedArray2(),
     // new RemoveElement(),
-    new MoveZeroes()
+    //new MoveZeroes()
 ];
 
-ConsoleRenderer.RenderProblems(problems);
+//ConsoleRenderer.RenderProblems(problems);
+
+SortedArray<int> myArray = new SortedArray<int>();
+myArray.Insert(1);
+myArray.Insert(2);
+myArray.Insert(3);
+myArray.Insert(5);
+myArray.Insert(6);
+myArray.Insert(7);
+myArray.Insert(4);
