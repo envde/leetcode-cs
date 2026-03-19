@@ -39,7 +39,8 @@ public class SortedArray<T> where T : IComparisonOperators<T, T, bool>
             if (Data[i] > Data[i + 1])
             {
                 (Data[i + 1], Data[i]) = (Data[i], Data[i + 1]);
-            } else
+            }
+            else
                 break;
         }
 
@@ -77,7 +78,7 @@ public class SortedArray<T> where T : IComparisonOperators<T, T, bool>
         int left = 0;
         int right = Length - 1;
 
-        while(right >= left)
+        while (right >= left)
         {
             var mid = (right + left) / 2;
 
@@ -95,5 +96,25 @@ public class SortedArray<T> where T : IComparisonOperators<T, T, bool>
         }
 
         return -1;
+    }
+
+    /// <summary>
+    /// Delete element from array
+    /// </summary>
+    /// <param name="value">Value for delete</param>
+    public void Delete(T value)
+    {
+        var index = SearchIndexBinary(value);
+        if (index < 0) return;
+
+        for (var i = index; i < Length - 1; i++)
+        {
+            Data[i] = Data[i+1];
+        }
+
+        Length--;
+        Buffer++;
+        Data[Length - 1] = default!;
+
     }
 }

@@ -29,5 +29,4 @@ myArray.Insert(4);
 myArray.Insert(8);
 myArray.Insert(9);
 
-Console.WriteLine($"Liner search {myArray.SearchIndexLiner(7)}");
-Console.WriteLine($"Binary search {myArray.SearchIndexBinary(2)}");
+myArray.Delete(4);
