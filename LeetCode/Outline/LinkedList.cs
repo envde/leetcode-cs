@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Numerics;
 
 namespace LeetCode.Outline;
@@ -7,7 +8,7 @@ namespace LeetCode.Outline;
 /// Simple linked list
 /// </summary>
 /// <typeparam name="T"></typeparam>
-public class LinkedList<T> where T : IEqualityOperators<T, T, bool>
+public class LinkedList<T> : IEnumerable<T> where T : IEqualityOperators<T, T, bool>
 {
     private Node? Head { get; set; }
 
@@ -76,6 +77,21 @@ public class LinkedList<T> where T : IEqualityOperators<T, T, bool>
         }
 
         return null;
+    }
+
+    public IEnumerator<T> GetEnumerator()
+    {
+        var current = Head;
+        while(current is not null)
+        {
+            yield return current.Value;
+            current = current.Next;
+        }
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
     }
 
     private class Node
